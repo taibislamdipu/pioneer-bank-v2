@@ -24,9 +24,9 @@
 
         <div class="container shadow-box p-5 mt-5">
             <h3>Login</h2>
-                <input class="form-control" type="text" name="" id="">
+                <input class="form-control" type="text" name="" id="" placeholder="Username">
                 <br>
-                <input class="form-control" type="password" name="" id="">
+                <input class="form-control" type="password" name="" id="" placeholder="Password">
                 <br>
                 <button id="login-btn" class="btn btn-success">Login</button>
         </div>
@@ -35,8 +35,8 @@
 
 
 
-    <section id="transaction-area">
-        <div class="container p-5">
+    <section id="transaction-area" class="">
+        <div class="container p-5 border rounded mt-5">
             <button class="btn btn-danger" id="logoutBtn">Logout</button>
 
             <div class="row mt-5">
@@ -64,7 +64,7 @@
                 <div class="col-md-6">
                     <div class="shadow-box m-2 p-5">
                         <h3>Deposit</h3>
-                        <input type="number" id="depositAmount" class="form-control">
+                        <input type="number" id="depositAmount" class="form-control" placeholder="Enter deposit amount">
                         <br>
                         <button class="btn btn-success" id="addDeposit">Deposit</button>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="col-md-6">
                     <div class="shadow-box m-2 p-5">
                         <h3>Withdraw</h3>
-                        <input type="number" id="withdrawAmount" class="form-control">
+                        <input type="number" id="withdrawAmount" class="form-control" placeholder="Amount to withdraw">
                         <br>
                         <button class="btn btn-warning" id="withdrawBtn">Withdraw</button>
                     </div>
@@ -81,8 +81,13 @@
         </div>
     </section>
 
-
-
+    <!-- footer -->
+    <footer>
+        <div class="footer-copyright text-center py-4 mt-5">© Developed with 🖤 by
+            <a href="https://taibislamdipu.netlify.app/" target="_blank"> Taib islam</a>
+        </div>
+    </footer>
+    <!-- footer -->
 
 
     <script>
@@ -102,25 +107,33 @@
         const depositBtn = document.getElementById('addDeposit');
         depositBtn.addEventListener('click', function () {
             const depositAmount = document.getElementById("depositAmount").value;
-            const depositNumber = parseFloat(depositAmount);
 
-            const currentDeposit = document.getElementById('current-deposit').innerText;
-            const currentDepositNumber = parseFloat(currentDeposit);
-            const totatDeposit = depositNumber + currentDepositNumber;
-            document.getElementById('current-deposit').innerText = totatDeposit;
+            if (depositAmount <= 0) {
+                alert('Please enter a valid amount')
+            } else {
+                const depositNumber = parseFloat(depositAmount);
 
-            const currentBalance = document.getElementById('currentBalance').innerText;
-            const currentBalanceNumber = parseFloat(currentBalance);
-            const totalBalance = currentBalanceNumber + depositNumber;
-            document.getElementById('currentBalance').innerText = totalBalance;
+                const currentDeposit = document.getElementById('current-deposit').innerText;
+                const currentDepositNumber = parseFloat(currentDeposit);
+                const totatDeposit = depositNumber + currentDepositNumber;
+                document.getElementById('current-deposit').innerText = totatDeposit;
 
-            document.getElementById('depositAmount').value = null;
+                const currentBalance = document.getElementById('currentBalance').innerText;
+                const currentBalanceNumber = parseFloat(currentBalance);
+                const totalBalance = currentBalanceNumber + depositNumber;
+                document.getElementById('currentBalance').innerText = totalBalance;
 
+                document.getElementById('depositAmount').value = null;
+            }
         })
 
-                    const withdrawBtn = document.getElementById('withdrawBtn');
-                    withdrawBtn.addEventListener('click', function () {
-                        const withdrawAmount = document.getElementById('withdrawAmount').value;
+                const withdrawBtn = document.getElementById('withdrawBtn');
+                withdrawBtn.addEventListener('click', function () {
+                    const withdrawAmount = document.getElementById('withdrawAmount').value;
+
+                    if (withdrawAmount <= 0) {
+                        alert('Please enter a valid amount')
+                    } else {
                         const withdrawNumber = parseFloat(withdrawAmount);
                         const currentWithdraw = document.getElementById('current-withdraw').innerText;
                         const currentWithdrawNumber = parseFloat(currentWithdraw);
@@ -129,7 +142,16 @@
 
                         document.getElementById('current-withdraw').innerText = totalWithdraw;
 
-                    })
+                        const currentBalance = document.getElementById('currentBalance').innerText;
+                        const currentBalanceNumber = parseFloat(currentBalance);
+
+                        const totalBalance = currentBalance - withdrawNumber;
+
+                        document.getElementById('currentBalance').innerText = totalBalance;
+
+                        document.getElementById('withdrawAmount').value = null;
+                    }
+        })
 
     </script>
 
