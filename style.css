@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+ }
+
+ #transaction-area{
+     display: none;
+ }
+
+ .deposit{
+     background-color: slateblue;
+ }
+
+ .withdraw{
+     background-color: lightcoral;
+ }
+ 
+ .balance{
+     background-color: orange;
+ }
+
+ .shadow-box{
+    box-shadow: 10px 10px 20px -6px rgba(0,0,0,0.50);
+    border-radius: 10px;
+ }
