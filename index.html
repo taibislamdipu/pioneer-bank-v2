@@ -49,7 +49,7 @@
                 <div class="col-md-4 ">
                     <div class="withdraw m-2 p-3 bordered rounded text-white">
                         <h5>Withdraw</h5>
-                        <h2>$ 00</h2>
+                        <h2>$ <span id="current-withdraw">00</span></h2>
                     </div>
                 </div>
                 <div class="col-md-4 ">
@@ -72,9 +72,9 @@
                 <div class="col-md-6">
                     <div class="shadow-box m-2 p-5">
                         <h3>Withdraw</h3>
-                        <input type="number" class="form-control">
+                        <input type="number" id="withdrawAmount" class="form-control">
                         <br>
-                        <button class="btn btn-warning" id="withdraw">Withdraw</button>
+                        <button class="btn btn-warning" id="withdrawBtn">Withdraw</button>
                     </div>
                 </div>
             </div>
@@ -117,6 +117,19 @@
             document.getElementById('depositAmount').value = null;
 
         })
+
+                const withdrawBtn = document.getElementById('withdrawBtn');
+                withdrawBtn.addEventListener('click', function () {
+                    const withdrawAmount = document.getElementById('withdrawAmount').value;
+                    const withdrawNumber = parseFloat(withdrawAmount);
+                    const currentWithdraw = document.getElementById('current-withdraw').innerText;
+                    const currentWithdrawNumber = parseFloat(currentWithdraw);
+
+                    const totalWithdraw = currentWithdrawNumber + withdrawNumber;
+
+                    document.getElementById('current-withdraw').innerText = totalWithdraw;
+
+                })
 
     </script>
 
