@@ -118,18 +118,18 @@
 
         })
 
-                const withdrawBtn = document.getElementById('withdrawBtn');
-                withdrawBtn.addEventListener('click', function () {
-                    const withdrawAmount = document.getElementById('withdrawAmount').value;
-                    const withdrawNumber = parseFloat(withdrawAmount);
-                    const currentWithdraw = document.getElementById('current-withdraw').innerText;
-                    const currentWithdrawNumber = parseFloat(currentWithdraw);
+                    const withdrawBtn = document.getElementById('withdrawBtn');
+                    withdrawBtn.addEventListener('click', function () {
+                        const withdrawAmount = document.getElementById('withdrawAmount').value;
+                        const withdrawNumber = parseFloat(withdrawAmount);
+                        const currentWithdraw = document.getElementById('current-withdraw').innerText;
+                        const currentWithdrawNumber = parseFloat(currentWithdraw);
 
-                    const totalWithdraw = currentWithdrawNumber + withdrawNumber;
+                        const totalWithdraw = currentWithdrawNumber + withdrawNumber;
 
-                    document.getElementById('current-withdraw').innerText = totalWithdraw;
+                        document.getElementById('current-withdraw').innerText = totalWithdraw;
 
-                })
+                    })
 
     </script>
 
